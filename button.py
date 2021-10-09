@@ -20,6 +20,9 @@ class Button:
         self.rect.setFill('lightgray')
         self.rect.draw(win)
         self.label = Text(center, label)
+        self.label.setStyle("bold")
+        self.label.setFace("arial")  # type of word
+        self.label.setSize(15)
         self.label.draw(win)
         self.deactivate()
 

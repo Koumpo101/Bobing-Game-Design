@@ -1,15 +1,25 @@
-# roller.py
+# single_player.py
 
 from random import randrange
-from graphics import GraphWin, Point, GraphicsError
+from graphics import *
 from button import Button
 from dieview import DieView
+from rule_display import *
+from initial_dice import *
 
 def single_player():
-    #create the application window
+    # create the application window
     win = GraphWin('Bobing Game',750,750)
     win.setCoords(0, 0, 10, 10)
     win.setBackground("orange3")
+
+    # create a title
+    titl = Text(Point(5, 9.5), "Single Player")
+    titl.setFace("courier")  # type of word
+    titl.setSize(30)
+    titl.setStyle("bold italic")
+    titl.setFill("black")
+    titl.draw(win)
 
     # draw the interface widget
     die1 = DieView(win, Point(2,8), 1.5)
@@ -42,6 +52,10 @@ def single_player():
                 die6.setValue(value6)
                 quitButton.activate()
                 # design the rectangular text tips"状元插金花"
+                rule_result(value1, value2, value3, value4, value5, value6, win)
+                # back to the initial dice appearance
+                initial(die1, die2, die3, die4, die5, die6)
+
             pt = win.getMouse()
 
         # close up shop
@@ -50,4 +64,4 @@ def single_player():
         print(g)
 
 
-single_player()
+
